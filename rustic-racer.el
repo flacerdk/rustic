@@ -37,10 +37,10 @@
      (let* ((sysroot (s-trim-right
                       (shell-command-to-string
                        (format "%s --print sysroot" (executable-find "rustc")))))
-            (src-path (f-join sysroot "lib/rustlib/src/rust/src")))
-       (when (file-exists-p src-path)
-         src-path)
-       src-path))
+            (lib-path (f-join sysroot "lib/rustlib/src/rust/library")))
+       (when (file-exists-p lib-path)
+         lib-path)
+       lib-path))
    "/usr/local/src/rust/src")
 
   "Path to the rust source tree.
